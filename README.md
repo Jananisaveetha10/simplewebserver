@@ -1,5 +1,5 @@
 # EX01 Developing a Simple Webserver
-## Date:26-11-2024
+## Date:12-12-2024
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the configuration details of laptop.
@@ -28,8 +28,8 @@ Testing the webserver.
     
   
     <h1 allign="centre"> Device Specifications</h1>
-    <h2 allign ="right">(Indhu Priya) </h2>
-    <h3 allign="right">(24007533)</h3>
+    <h2 allign ="right">(Janani) </h2>
+    <h3 allign="right">(24900080)</h3>
     <ol type="i">   
           <li> Device Name-DESKTOP-MOHHBTU</li>
           <li> Processor-13th Gen Intel core</li>     
@@ -42,12 +42,25 @@ Testing the webserver.
   </body>  
 
 </html>
+
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type','text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
 ```
 
 ## OUTPUT:
 
-![Screenshot 2024-11-18 225532](https://github.com/user-attachments/assets/d9dbc123-d233-4510-a046-61dba8475188)
+![alt text](<Screenshot 2024-12-12 223414.png>)
 
+![alt text](<Screenshot 2024-12-12 223534.png>)
 
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
